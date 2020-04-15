@@ -55,29 +55,27 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 	
 	
 	//these are all of the implemented methods for the action and key listeners
-	//actionlistener that moves the ball around
+	
+	//actionListener that moves the ball around
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	//keylistener to move the slider
+	//keyListener to move the slider
 	@Override
 	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
+		// we don't need this but it will throw an error	
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
+		// we don't need this but it will throw an error	
+	}
+	
+	@Override
+	public void keyPressed(KeyEvent e) {
 		
 	}
 
