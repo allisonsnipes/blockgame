@@ -1,3 +1,4 @@
+package brickBracker;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
@@ -27,12 +28,13 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 		addKeyListener(this);
 		setFocusable(true);
 		setFocusTraversalKeysEnabled(false);
-		timer = new Timer(delay, this); //object for timer
-		timer.start();
+//		timer = new Timer(delay, this); //object for timer
+//		timer.start();
 		
 	}
 	
-	public void paint(Graphics g) {//draws the slider ball and different objects in the game
+	//draws the slider ball and different objects in the game
+	public void paint(Graphics g) {
 		//drawing background
 		g.setColor(Color.black);
 		g.fillRect(1, 1, 692, 592);
@@ -52,20 +54,28 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 		g.fillRect(xBallPosition, yBallPosition, 20, 20);
 	} 
 	
+	//these methods are in charge of the movement of the ball left or right
+	public void moveRight() {
+		play = true; //set this value to true since it was false in the beginning
+		playerX+=20;
+	}
+	
+	public void moveLeft() {
+		play = true; //set this value to true since it was false in the beginning
+		playerX-=20;
+	}
 	
 	
 	//these are all of the implemented methods for the action and key listeners
-	
-	//actionListener that moves the ball around
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
+		//actionListener that moves the ball around
 	}
 
-	//keyListener to move the slider
+	
 	@Override
 	public void keyTyped(KeyEvent e) {
+		//keyListener to move the slider
 		// we don't need this but it will throw an error	
 	}
 
@@ -76,7 +86,21 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 	
 	@Override
 	public void keyPressed(KeyEvent e) {
+		if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
+			if(playerX >= 600) {
+				playerX = 600;
+			} else {
+				moveRight();
+			}
+		}
 		
+		if(e.getKeyCode() == KeyEvent.VK_LEFT) {
+			if(playerX < 10) {
+				playerX = 10;
+			} else {
+				moveLeft();
+			}
+		}
 	}
 
 }
